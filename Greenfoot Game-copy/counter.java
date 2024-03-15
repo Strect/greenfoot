@@ -1,26 +1,23 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
- * Write a description of class counter here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+Score Counter Class. Used to Display and Track players Score
  */
+
 public class counter extends Actor
 {
-    /**
-     * Act - do whatever the counter wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    int score=0;
-    public counter()
+    public static int score=0; //Score Variable 
+    public static int getScore() //Method for score counter 
     {
-        setImage(new GreenfootImage("score:"+score,40, Color.BLUE, Color.WHITE));
-        
-        
+    return score;
     }
     
-    public void act()
+    public void act() //Act Method
     {
-        // Add your action code here.
+    setImage(new GreenfootImage("Score:"+score,40, Color.WHITE, Color.BLACK)); //Score Counter On Play Screen
+    
+    if (!(getWorld() instanceof Win)){  //Game Over World--> score stops increasing.
+    score++;//Score increases on Play gamestate
+    }   
     }
+
 }

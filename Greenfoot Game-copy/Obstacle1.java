@@ -1,23 +1,29 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import greenfoot.*;  
 /**
- * Write a description of class Obstacle1 here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+This Class is for the Grey Obstacle 
+*/
 public class Obstacle1 extends Actor
 {
-    /**
-     * Act - do whatever the Obstacle1 wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
+    int speed=5; //Obstacle movement speed
+    int score=counter.score; //score variable used for Difficulty Progression
+    int angle=Greenfoot.getRandomNumber(5); //Random Turn Angle, element of Randomness to Obstacle movement
+  
+    public void act() //Act Method, always running when game is running. 
     {
-        move(-4);
-        turn (-1);
-        if (getY()>=800);
-            
-        
+        if (getWorld() instanceof Play) { //only move if game world, other worlds only for aesthetics no movement.
+            move(-speed); //obstacle movement
+            turn (angle); 
+        if(isAtEdge()){ //bounce off edge, unique movement
+            turn(180);
+        }
+        if (score>1000){ //increase speed of movement to make game harder. 
+            speed=7;
+        }
+        }
     }
+
+        
 }
+            
+    
+    

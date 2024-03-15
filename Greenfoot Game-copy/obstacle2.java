@@ -1,20 +1,20 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  
 
 /**
- * Write a description of class obstacle2 here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+Obstacle 2 Class
  */
 public class obstacle2 extends Actor
 {
-    /**
-     * Act - do whatever the obstacle2 wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
+    int score=counter.score; //Score from counter class, used for difficulty progression.
+    int speed=5; //Obstacle Movement Speed
+    
+    public void act() //Act Method
     {
-        move(4);
+    if (getWorld() instanceof Play) { //Obstacle Movement
+        move(speed);
         turn (1);
+    if (score>2000) //Speed/Difficulty Increase
+        speed=9;
+    }
     }
 }
